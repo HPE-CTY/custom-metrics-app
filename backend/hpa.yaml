@@ -17,10 +17,10 @@ spec:
           name: http_requests_per_second
         target:
           type: AverageValue
-          averageValue: 324m
+          averageValue: 34m
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 321
+          averageUtilization: 54

@@ -1,12 +1,19 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+const cors = require("cors");
+// const bodyParser = require("body-parser");
 const fs = require("fs");
 const yaml = require("yaml");
 
 const app = express();
 const port = 3000;
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
@@ -41,7 +48,7 @@ app.post("/update-hpa", (req, res) => {
 
       // Here you can also apply the updated configuration to the cluster
       // using a Kubernetes client library or `kubectl apply -f hpa.yaml`
-
+      console.log(`Average Value: ${averageValue} Average Utilization: ${averageUtilization}`);
       res.send("HPA configuration updated successfully");
     });
   });
