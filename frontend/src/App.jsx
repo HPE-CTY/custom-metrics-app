@@ -21,23 +21,31 @@ function App() {
   };
 
   return (
-    <div className="App flex flex-col justify-center items-center gap-4 space-y-4">
+    <div className="App flex flex-col justify-center items-center space-y-5">
       <Navbar />
-      <h1 className="text-5xl pt-12 font-bold">Enter Custom Metrics</h1>
+      <h1 className="text-5xl pt-12 pb-6 font-bold">Enter Custom Metrics</h1>
+      <div className="flex flex-col gap-2">
+      <label htmlFor="averageValue">Enter HTTP Requests per second</label>
       <input
         type="number"
         value={averageValue}
+        name="averageValue"
         onChange={(e) => setAverageValue(e.target.value)}
-        placeholder="Enter the average value"
-        className="border border-gray-300 p-2 rounded-md outline-none"
-      />
+        placeholder="HTTP Requests per second"
+        className="border border-gray-300 p-2 px-4 w-full rounded-md outline-none"
+        />
+        </div>
+        <div className="flex flex-col gap-2">
+      <label htmlFor="averageUtilization">Enter Average CPU Utilization</label>
       <input
         type="number"
         value={averageUtilization}
+        name="averageUtilization"
         onChange={(e) => setAverageUtilization(e.target.value)}
-        placeholder="Enter the average utilization"
-        className="border border-gray-300 p-2 rounded-md outline-none"
-      />
+        placeholder="Average CPU Utilization"
+        className="border border-gray-300 p-2 px-4 w-full rounded-md outline-none"
+        />
+        </div>
       <button onClick={submitCustomValues} className="bg-[#01a982] font-bold">
         Enter
       </button>
