@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 const hpaFilePath = process.env.HPA_FILE_PATH;
 
 app.post("/update-hpa", (req, res) => {
-  let { averageValue, averageUtilization } = req.body;
+  let { averageValue, averageUtilization, minReplicas, maxReplicas } = req.body;
 
   if (!averageValue || isNaN(parseFloat(averageValue))) {
     averageValue = "500";
